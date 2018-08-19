@@ -1,0 +1,6 @@
+## Interface: 90000
+## Author: Skroop
+## Title: |cFFC79C6Eskr|r|cffffffffPaladin
+## Notes: Shows an ability and buff duration timer icon for Inquisition
+
+core.lua
