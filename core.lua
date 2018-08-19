@@ -62,9 +62,9 @@ local OnEventHandler = function(self, event)
 			if message == 'SPELL_AURA_REMOVED' then
 				active = false
 
-	    	f.icon:SetTexture(tex)
+				f.icon:SetTexture(tex)
 				duration:SetText()
-	  	elseif message == 'SPELL_AURA_APPLIED' then
+			elseif message == 'SPELL_AURA_APPLIED' then
 				active = true
 
 				f.icon:SetTexture(inquisitionTex)
@@ -81,14 +81,14 @@ end
 -- update handler
 local timeSinceLastUpdate = 0
 local OnUpdate = function(self, elapsed)
-  timeSinceLastUpdate = timeSinceLastUpdate + elapsed
-  if timeSinceLastUpdate > 1.0 then
-    timeSinceLastUpdate = 0
+	timeSinceLastUpdate = timeSinceLastUpdate + elapsed
+	if timeSinceLastUpdate > 1.0 then
+		timeSinceLastUpdate = 0
 
 		if active then
 			duration:SetFormattedText("%d", remainingTime())
 		end
-  end
+	end
 end
 
 -- remaining time on the buff
@@ -97,7 +97,7 @@ function remainingTime()
 		local name, _, _, _, _, expirationTime, _, _, _, spellId = UnitBuff('PLAYER', i)
 		if spellId == inquisitionId then
 			if expirationTime then
-  			return expirationTime - GetTime()
+				return expirationTime - GetTime()
 			else
 				return 0
 			end
